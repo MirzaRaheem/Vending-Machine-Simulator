@@ -45,9 +45,33 @@ void changeItemPrices() {
     scanf("%lf", &newPriceE);
 
     PriceA = newPriceA;
-    
+    PriceB = newPriceB;
+    PriceC = newPriceC;
+    PriceD = newPriceD;
+    PriceE = newPriceE;
 
+    printf("The prices for the items has been updated successfully.\n");
+}
 
+// Function to display the total sale amount and also to reset if needed 
+void displayTotalSale() {
+    printf("Total amount of sale is: %.2lfAED , total_amount");
+    printf("Reset total amount of sale to zero (yes/no): ");
+    char resetoption;
+    scanf("%c", &resetoption);
+    if (resetoption == 'yes'|| resetoption == 'YES') {
+        printf("The amount of sale has been set to zero. Please collect the money from the machine\n");
+        total_amount = 0.0;
+    }
+}
 
-
+// Function to Display the Item Availability
+void displayItemAvailability() {
+    printf("xxxxx ITEM AVAILABILITY xxxxx");
+    printf("Product A (Price: %.2lfAED) Quantity: %d\n", PriceA, qtyA);
+    printf("Product B (Price: %.2lfAED) Quantity: %d\n", PriceB, qtyB);
+    printf("Product C (Price: %.2lfAED) Quantity: %d\n", PriceC, qtyC);
+    printf("Product D (Price: %.2lfAED) Quantity: %d\n", PriceD, qtyD);
+    printf("Product E (Price: %.2lfAED) Quantity: %d\n", PriceE, qtyE);
+    printf("xxxxxxxxxxxx END xxxxxxxxxxxx");        
 }
