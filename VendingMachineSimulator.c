@@ -173,3 +173,79 @@ void purchaseItem() {
         break;
     }
 }
+
+// Function for the admin menu
+void adminMenu() {
+    int adminChoice;
+
+    while (1) {
+        printf("\n===== ADMIN MENU =====\n");
+        printf("1. Replenish Items\n");
+        printf("2. Change Item Prices\n");
+        printf("3. Display Total Sale\n");
+        printf("4. Display Item Availability\n");
+        printf("0. Exit Admin Mode\n");
+
+        printf("Enter your choice: ");
+        scanf("%d", &adminChoice);
+
+        switch (adminChoice) {
+            case 1:
+                replenishItems();
+                break;
+            case 2:
+                changeItemPrices();
+                break;
+            case 3:
+                displayTotalSale();
+                break;
+            case 4:
+                displayItemAvailability();
+                break;
+            case 0:
+                printf("Exiting Admin Mode.\n");
+                return; // Exit the admin menu
+            default:
+                printf("Invalid choice.\n");
+        }
+    }
+}
+
+int main() {
+    int choice;
+
+    while (1) {
+        printf("\n===== VENDING MACHINE =====\n");
+        printf("1. Purchase Item\n");
+        printf("2. Admin Mode\n");
+        printf("3. Exit\n");
+        printf("=============================\n");
+
+        printf("Enter your choice: ");
+        scanf("%d", &choice);
+
+        switch (choice) {
+            case 1:
+                purchaseItem();
+                break;
+            case 2:
+                int adminPass;
+                printf("Enter admin password: ");
+                scanf("%d", &adminPass);
+
+                if (adminPass == AdminPass) {
+                    adminMenu();
+                } else {
+                    printf("Incorrect password.\n");
+                }
+                break;
+            case 3:
+                printf("Thank you for using the vending machine simulator.\n");
+                return 0; // Exit the program
+            default:
+                printf("Invalid choice.\n");
+        }
+    }
+
+    return 0;
+}
